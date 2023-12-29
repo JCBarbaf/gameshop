@@ -1,0 +1,37 @@
+@font-face {
+  font-family: 'Poppins';
+  src: url(../font/Poppins-Regular.ttf);
+}
+:root {
+  --background-color: rgb(41, 110, 148);
+  --primary-color: rgb(24, 80, 111);
+  --secondary-color: rgb(11, 70, 104);
+  --terciary-color: rgb(33, 136, 192);
+  --white: rgb(203, 232, 248);
+  --black: rgb(2, 29, 45);
+  --red: rgb(134, 39, 39);
+  --green: rgb(50, 88, 50);
+  --yellow: rgb(235, 235, 22);
+  --gradient: linear-gradient(0deg, rgba(200,200,200,0.1) 0%, rgba(50,50,50,0.1) 100%);
+  --border: 0.5rem solid rgba(0, 0, 0, 0.2);
+  --shadow: 0.5rem 0.5rem 0 0 rgba(0, 0, 0, 0.2);
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  overflow: hidden;
+  background: var(--background-color) url(../img/background.svg);
+  background-size: 30%;
+  background-attachment: fixed;
+  color: var(--black);
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
+main {
+  height: 90vh;
+  display: flex;
+  justify-content: space-between;
+}
+
