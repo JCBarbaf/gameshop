@@ -34,4 +34,17 @@ main {
   display: flex;
   justify-content: space-between;
 }
+.detail-container {
+  width: 90%;
+  overflow: hidden;
+  margin: 2% auto;
+  background-color: var(--terciary-color);
+  border-radius: 2rem;
+}
+.detail-header {
+  display: flex;
+  padding: 2%;
+  background-color: var(--primary-color,rgb(24, 80, 111));
+  border-bottom: var(--border, 0.5rem solid rgba(0, 0, 0, 0.2));
+}
 

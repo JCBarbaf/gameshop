@@ -70,7 +70,7 @@ class Filter extends HTMLElement {
         }
         aside {
           width: 0rem;
-          height: 100%;
+          height: 96%;
           background: var(--secondary-color, rgb(11, 70, 104)) var(--gradient, linear-gradient(0deg, rgba(200,200,200,0.1) 0%, rgba(50,50,50,0.1) 100%));
           color: var(--white, white);
           border-left: var(--border, 0.5rem solid rgba(0, 0, 0, 0.2));
@@ -82,8 +82,53 @@ class Filter extends HTMLElement {
         }
         .filter-form {
           position: relative;
+          height: 100%;
           padding-top: 2rem;
           padding-left: 1rem;
+        }
+        section {
+          width: 90%;
+          padding: 10% 0;
+          border-bottom: var(--border, 0.5rem solid rgba(0, 0, 0, 0.2));
+          border-width: 0.25rem;
+        }
+        input,select {
+          background: var(--terciary-color, rgb(33, 136, 192));
+          color: inherit;
+          border: var(--border, 0.5rem solid rgba(0, 0, 0, 0.2));
+          border-width: 0.25rem;
+          border-radius: 0.2rem;
+        }
+        input:focus {
+          filter: brightness(0.9);
+        }
+        .price-inputs {
+          display: flex;
+          gap: 3%;
+        }
+        .price-inputs input {
+          width: 30%;
+        }
+        .submit-button {
+          width: 0;
+          position: absolute;
+          bottom: 2%;
+          right: 5%;
+          padding: 3%;
+          background-color: var(--yellow, rgb(235, 235, 22));
+          color: var(--black, black);
+          border: var(--border, 0.5rem solid rgba(0, 0, 0, 0.2));
+          border-width: 0.3rem;
+          border-radius: 0.5rem;
+          cursor: pointer;
+          font: inherit;
+        }
+        .active .submit-button {
+          width: auto;
+        }
+        .submit-button:hover {
+          filter: brightness(1.1);
+          transform: scale(1.1);
         }
       </style>
       <button class="filter-button">
@@ -102,9 +147,11 @@ class Filter extends HTMLElement {
           </section>
           <section class="price-section">
             <label for="min-price">Price range:</label>
-            <input type="number" name="min-price" id="min-price">
-            <p>-</p>
-            <input type="number" name="max-price">
+            <div class="price-inputs">
+              <input type="number" name="min-price" id="min-price">
+              <p>-</p>
+              <input type="number" name="max-price">
+            </div>
           </section>
           <section class="genre-section">
             <label for="genre">Genre:</label>
@@ -124,7 +171,7 @@ class Filter extends HTMLElement {
               <option value="action">Most popular</option>
             </select>
           </section>
-          <button class="submit-button">Filtrar</button>
+          <button class="submit-button">Filter</button>
         </form>
       </aside>
       `
