@@ -36,15 +36,80 @@ main {
 }
 .detail-container {
   width: 90%;
+  height: 80vh;
   overflow: hidden;
   margin: 2% auto;
   background-color: var(--terciary-color);
   border-radius: 2rem;
 }
 .detail-header {
-  display: flex;
   padding: 2%;
-  background-color: var(--primary-color,rgb(24, 80, 111));
+  background-color: var(--primary-color, rgb(24, 80, 111));
   border-bottom: var(--border, 0.5rem solid rgba(0, 0, 0, 0.2));
 }
-
+.detail-container main {
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: stretch;
+}
+.slider-price {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 5%;
+}
+.slider {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+.arrow {
+  width: 3rem;
+  padding-right: 2%;
+  background-color: var(--primary-color, rgb(24, 80, 111));
+  border-radius: 0 1rem 1rem 0;
+  cursor: pointer;
+}
+.arrow.left {
+  transform: scale(-1);
+}
+.arrow:hover {
+  filter: brightness(0.9);
+}
+.slider-images {
+  width: 40rem;
+  height: 30rem;
+  position: relative;
+  overflow: hidden;
+  border-block: 0.5rem solid var(--primary-color, rgb(24, 80, 111));
+}
+.slider-images img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  object-fit: cover;
+}
+.price-container {
+  display: flex;
+  align-items: center;
+  gap: 3%;
+  font-size: 1.25rem;
+}
+.discount {
+  padding: 3%;
+  background-color: var(--red, red);
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 0 0.75rem 0 0;
+}
+.old-price {
+  text-decoration: line-through;
+  filter: brightness(0.4);
+}

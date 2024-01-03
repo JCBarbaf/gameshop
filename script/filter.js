@@ -96,7 +96,7 @@ class Filter extends HTMLElement {
           background: var(--terciary-color, rgb(33, 136, 192));
           color: inherit;
           border: var(--border, 0.5rem solid rgba(0, 0, 0, 0.2));
-          border-width: 0.25rem;
+          border-width: 0.2rem;
           border-radius: 0.2rem;
         }
         input:focus {
