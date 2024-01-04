@@ -23,14 +23,14 @@ class Gallery extends HTMLElement {
         }
         .galery {
           /* background-color: red; */
-          height: 100%;
+          height: 90%;
           display: flex;
           justify-content: space-around;
           align-items: flex-start;
           flex-wrap: wrap;
           gap: 3%;
           padding: 2%;
-          margin: 0.5%;
+          margin: 0% 1%;
           overflow: auto;
         }
         *::-webkit-scrollbar {
@@ -58,6 +58,7 @@ class Gallery extends HTMLElement {
         <product-card-component></product-card-component>
         <product-card-component></product-card-component>
       </div>
+      <footer-component></footer-component>
       `
     }
   }

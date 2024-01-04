@@ -54,8 +54,12 @@ class ProductCard extends HTMLElement {
         .wishlist-button:hover .filler {
           fill: rgb(0,0,0,0.05);
         }
-        .card.whislisted .filler {
+        .wishlisted .filler {
           fill: var(--yellow, yellow)
+        }
+        .wishlisted .wishlist-button:hover .filler {
+          fill: var(--yellow, yellow);
+          filter: brightness(0.9);
         }
         .product-miniature {
           display: block;
@@ -96,7 +100,7 @@ class ProductCard extends HTMLElement {
           }
         }
       </style>
-      <a href="details.html" class="card">
+      <a href="detail.html" class="card">
         <header class="card-header">
           <p class="product-title">Monster Maker</p>
           <svg class="wishlist-button" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -112,6 +116,13 @@ class ProductCard extends HTMLElement {
         </div>
       </a>
       `
+      const productCard = this.shadow.querySelector('.card');
+      productCard.addEventListener('click', (event) => {
+        if (event.target.closest('.wishlist-button')) {
+          event.preventDefault();
+          productCard.classList.toggle('wishlisted');
+        }
+      });
     }
   }
   
