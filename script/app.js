@@ -5,3 +5,4 @@ import './galery.js';
 import './product-card.js';
 import './footer.js';
 import './details.js';
+import './checkout.js';

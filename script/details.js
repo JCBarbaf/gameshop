@@ -17,6 +17,10 @@ class Details extends HTMLElement {
           margin: 0;
           padding: 0;
         }
+        a {
+          color: inherit;
+          text-decoration: none;
+        }
         .detail-container {
           width: 90%;
           height: 80vh;
@@ -138,7 +142,7 @@ class Details extends HTMLElement {
           gap: 2%;
           margin-left: 1%;
         }
-        .buy-bar button {
+        .buy-bar button, .buy-bar a {
           padding: 1%;
           border: var(--border, 0.5rem solid rgba(0, 0, 0, 0.2));
           border-width: 0.25rem;
@@ -146,7 +150,7 @@ class Details extends HTMLElement {
           cursor: pointer;
           font-size: 1.5rem;
         }
-        .buy-bar button:hover {
+        .buy-bar button:hover, .buy-bar a:hover {
           filter: brightness(1.1);
           transform: scale(1.1);
         }
@@ -259,7 +263,7 @@ class Details extends HTMLElement {
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M321.172 327.267C328.799 327.267 334.981 321.084 334.981 313.457C334.981 305.83 328.799 299.647 321.172 299.647C313.545 299.647 307.362 305.83 307.362 313.457C307.362 321.084 313.545 327.267 321.172 327.267ZM321.172 345.992C339.14 345.992 353.707 331.426 353.707 313.457C353.707 295.489 339.14 280.922 321.172 280.922C303.203 280.922 288.637 295.489 288.637 313.457C288.637 331.426 303.203 345.992 321.172 345.992Z" fill="#3C9CD0"/>
                 </svg>
               </button>
-              <button class="buy-now-button">Buy now</button>
+              <a class="buy-now-button" href="checkout.html">Buy now</a>
             </div>
           </div>
         </main>
