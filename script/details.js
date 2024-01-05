@@ -23,9 +23,9 @@ class Details extends HTMLElement {
         }
         .detail-container {
           width: 90%;
-          height: 80vh;
+          height: 76vh;
           overflow: hidden;
-          margin: 2% auto;
+          margin: 1% auto;
           background: var(--terciary-color, rgb(33, 136, 192)) var(--gradient, linear-gradient(0deg, rgba(200,200,200,0.1) 0%, rgba(50,50,50,0.1) 100%));
           border-radius: 2rem;
           box-shadow: var(--shadow, 0.5rem 0.5rem 0 0 rgba(0, 0, 0, 0.2))
@@ -71,7 +71,7 @@ class Details extends HTMLElement {
           filter: brightness(0.9);
         }
         .slider-images {
-          width: 40rem;
+          width: 50rem;
           height: 30rem;
           position: relative;
           overflow: hidden;
@@ -85,7 +85,11 @@ class Details extends HTMLElement {
           bottom: 0;
           left: 0;
           right: 0;
+          visibility: hidden;
           object-fit: cover;
+        }
+        .slider-images .active {
+          visibility: visible;
         }
         .price-container {
           width: 100%;
@@ -117,7 +121,8 @@ class Details extends HTMLElement {
         .info {
           height: 80%;
           overflow: auto;
-          margin: 3% 1%;
+          margin: 3% 2%;
+          padding-right: 5%;
           color: var(--black, black);
           font-size: 1.2rem;
           text-align: justify;
@@ -129,8 +134,8 @@ class Details extends HTMLElement {
           font-weight: bold;
         }
         .info .genre {
-          margin: 0 0.5%;
-          padding: 0.5%;
+          margin: 0 1%;
+          padding: 1%;
           background-color: var(--primary-color, rgb(24, 80, 111));
           color: var(--white, white);
           border-radius: 0.5rem;
@@ -219,8 +224,12 @@ class Details extends HTMLElement {
                 <path d="M269 132.179C282.333 139.877 282.333 159.123 269 166.821L104.75 261.65C91.4167 269.348 74.75 259.726 74.75 244.33L74.75 54.6702C74.75 39.2742 91.4167 29.6517 104.75 37.3497L269 132.179Z" fill="#3C9CD0"/>
               </svg>
               <div class="slider-images">
-                <img class="active" src="img/monstermaker-inicio.png">
+                <img src="img/monstermaker-inicio.png">
                 <img src="img/monstermaker-captura.png">
+                <img src="img/monstermaker2.png">
+                <img src="img/monstermaker3.png">
+                <img src="img/monstermaker4.png">
+                <img src="img/monstermaker5.png">
               </div>
               <svg class="arrow right" viewBox="0 0 299 299" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M269 132.179C282.333 139.877 282.333 159.123 269 166.821L104.75 261.65C91.4167 269.348 74.75 259.726 74.75 244.33L74.75 54.6702C74.75 39.2742 91.4167 29.6517 104.75 37.3497L269 132.179Z" fill="#3C9CD0"/>
@@ -270,11 +279,41 @@ class Details extends HTMLElement {
       </div>
       `
       const detailContainer = this.shadow.querySelector('.detail-container');
+      const sliderImages = this.shadow.querySelectorAll('.slider-images img');
+      const quantity = this.shadow.querySelector('.quantity');
+      let sliderIndex = 0;
+      sliderImages[sliderIndex].classList.add('active');
       detailContainer.addEventListener('click', (event) => {
         if (event.target.closest('.wishlist-button')) {
           event.preventDefault();
           detailContainer.classList.toggle('wishlisted');
+        };
+        if (event.target.closest('.arrow.right')) {
+          sliderImages[sliderIndex].classList.remove('active');
+          sliderIndex++;
+          if (sliderIndex >= sliderImages.length) {
+            sliderIndex = 0;
+          }
+          sliderImages[sliderIndex].classList.add('active');
         }
+        if (event.target.closest('.arrow.left')) {
+          sliderImages[sliderIndex].classList.remove('active');
+          sliderIndex--;
+          if (sliderIndex < 0) {
+            sliderIndex = sliderImages.length - 1;
+          }
+          sliderImages[sliderIndex].classList.add('active');
+        };
+        if (event.target.closest('.plus-button')) {
+          if (quantity.value < 100) {
+            quantity.value = parseInt(quantity.value) + 1;
+          }
+        };
+        if (event.target.closest('.minus-button')) {
+          if (quantity.value > 1) {
+            quantity.value = parseInt(quantity.value) - 1;
+          }
+        };
       });
     }
   }

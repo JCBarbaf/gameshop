@@ -34,3 +34,7 @@ main {
   display: flex;
   justify-content: space-between;
 }
+.active+.filter-button .line {
+  background-color: red;
+  animation: filter-transform 1s ease-in forwards;
+}

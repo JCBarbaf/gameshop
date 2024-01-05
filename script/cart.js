@@ -356,7 +356,19 @@ class Cart extends HTMLElement {
         if (event.target.closest('.cart-button') || event.target.closest('.close-button')) {
           cartModal.classList.toggle('active');
         }
-        
+        if (event.target.closest('.plus-button')) {
+          let quantity = event.target.parentNode.querySelector('.quantity');
+          console.log(quantity)
+          if (quantity.value < 100) {
+            quantity.value = parseInt(quantity.value) + 1;
+          }
+        };
+        if (event.target.closest('.minus-button')) {
+          let quantity = event.target.parentNode.querySelector('.quantity');
+          if (quantity.value > 1) {
+            quantity.value = parseInt(quantity.value) - 1;
+          }
+        };
       });
     }
   }

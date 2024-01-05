@@ -13,6 +13,10 @@ class Header extends HTMLElement {
       this.shadow.innerHTML =
       /*html*/`
       <style>
+        a {
+          color: inherit;
+          text-decoration: none;
+        }
         header {
           position: relative;
           display: flex;
@@ -44,6 +48,9 @@ class Header extends HTMLElement {
           justify-content: center;
           align-items: center;
           pointer-events: none;
+        }
+        .title a {
+          pointer-events: all;
         }
         .title span {
           color: var(--terciary-color, rgb(60, 156, 208));
@@ -79,7 +86,7 @@ class Header extends HTMLElement {
       </style>
       <header>
         <a class="logo" href="index.html"><img src="img/logo.svg" alt="logo" title="logo"></a>
-        <h1 class="title">JC Game<span>Shop</span></h1>
+        <h1 class="title"><a href="index.html">JC Game<span>Shop</span></a></h1>
         <div class="buttons">
           <cart-component></cart-component>
           <button class="user-button">

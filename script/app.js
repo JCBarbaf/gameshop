@@ -6,3 +6,4 @@ import './product-card.js';
 import './footer.js';
 import './details.js';
 import './checkout.js';
+import './faqs.js';

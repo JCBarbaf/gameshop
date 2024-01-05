@@ -29,6 +29,7 @@ class Checkout extends HTMLElement {
         }
         .checkout {
           display: flex;
+          min-height: 72vh;
           justify-content: space-around;
           align-items: flex-start;
           margin: 2%;

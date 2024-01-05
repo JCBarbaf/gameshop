@@ -55,18 +55,64 @@ class Filter extends HTMLElement {
           margin: auto;
           background-color: var(--white, white);
           border-radius: 5rem;
+          --final-width: 80%;
+          animation: filter-transform-bwd 0.3s ease-in forwards;
+        }
+        .filter-button.active .line {
+          animation: filter-transform-fwd 0.3s ease-in forwards;
         }
         .line:nth-child(1) {
-          width: 80%;
-          transform: translateY(-250%);
+          --initial-position: -250%;
+          --initial-width: 80%;
+          --rotation: -45deg;
+          width: var(--initial-width);
+          transform: translateY(var(--initial-position)) rotate(0);
         }
         .line:nth-child(2) {
-          width: 50%;
-          transform: translateY(0%);
+          --initial-position: 0%;
+          --initial-width: 50%;
+          --rotation: 45deg;
         }
         .line:nth-child(3) {
-          width: 20%;
-          transform: translateY(250%);
+          --initial-position: 250%;
+          --initial-width: 20%;
+          --rotation: 45deg;
+        }
+        @keyframes filter-transform-fwd {
+          0% {
+            width: var(--initial-width);
+            transform: translateY(var(--initial-position)) rotate(0);
+          }
+          50% {
+            width: var(--initial-width);
+            transform: translateY(0) rotate(0);
+          }
+          51% {
+            width: var(--final-width);
+            transform: translateY(0) rotate(0);
+          }
+          100% {
+            width: var(--final-width);
+            transform: translateY(0) rotate(var(--rotation));
+          }
+        }
+        @keyframes filter-transform-bwd {
+          0% {
+            width: var(--final-width);
+            transform: translateY(0) rotate(var(--rotation));
+          }
+          50% {
+            width: var(--final-width);
+            transform: translateY(0) rotate(0);
+          }
+          51% {
+            width: var(--initial-width);
+            transform: translateY(0) rotate(0);
+          }
+          100% {
+            width: var(--initial-width);
+            transform: translateY(var(--initial-position)) rotate(0);
+          }
         }
         aside {
           width: 0rem;
@@ -178,7 +224,8 @@ class Filter extends HTMLElement {
       const filterButton = this.shadow.querySelector('.filter-button');
       const aside = this.shadow.querySelector('aside');
       filterButton.addEventListener('click', () => {
-        aside.classList.toggle('active')
+        aside.classList.toggle('active');
+        filterButton.classList.toggle('active');
       });
     }
   }
