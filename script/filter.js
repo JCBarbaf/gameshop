@@ -14,6 +14,8 @@ class Filter extends HTMLElement {
       /*html*/`
       <style>
         :host {
+          height: 100%;
+          z-index: 100;
         }
         * {
           box-sizing: border-box;
@@ -116,7 +118,7 @@ class Filter extends HTMLElement {
         }
         aside {
           width: 0rem;
-          height: 96%;
+          height: 100%;
           background: var(--secondary-color, rgb(11, 70, 104)) var(--gradient, linear-gradient(0deg, rgba(200,200,200,0.1) 0%, rgba(50,50,50,0.1) 100%));
           color: var(--white, white);
           border-left: var(--border, 0.5rem solid rgba(0, 0, 0, 0.2));
@@ -158,8 +160,8 @@ class Filter extends HTMLElement {
         .submit-button {
           width: 0;
           position: absolute;
-          bottom: 2%;
-          right: 5%;
+          bottom: 5%;
+          right: 10%;
           padding: 3%;
           background-color: var(--yellow, rgb(235, 235, 22));
           color: var(--black, black);

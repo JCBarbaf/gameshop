@@ -24,6 +24,7 @@ class Gallery extends HTMLElement {
         .galery {
           /* background-color: red; */
           height: 90%;
+          position: relative;
           display: flex;
           justify-content: space-around;
           align-items: flex-start;
