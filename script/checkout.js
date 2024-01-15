@@ -334,6 +334,25 @@ class Checkout extends HTMLElement {
         </div>
       </div>
       `
+      const checkout = this.shadow.querySelector('.checkout');
+      checkout.addEventListener('click', (event) =>  {
+        if (event.target.closest('.plus-button')) {
+          let quantity = event.target.parentNode.querySelector('.quantity');
+          console.log(quantity)
+          if (quantity.value < 100) {
+            quantity.value = parseInt(quantity.value) + 1;
+          }
+        };
+        if (event.target.closest('.minus-button')) {
+          let quantity = event.target.parentNode.querySelector('.quantity');
+          if (quantity.value > 1) {
+            quantity.value = parseInt(quantity.value) - 1;
+          }
+        };
+        if (event.target.closest('.delete-button')) {
+          event.target.closest('.product').remove()
+        };
+      });
     }
   }
   

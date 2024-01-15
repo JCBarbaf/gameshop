@@ -369,6 +369,9 @@ class Cart extends HTMLElement {
             quantity.value = parseInt(quantity.value) - 1;
           }
         };
+        if (event.target.closest('.delete-button')) {
+          event.target.closest('.product').remove()
+        };
       });
     }
   }
